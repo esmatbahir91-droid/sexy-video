@@ -1,0 +1,16 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sexy Video — Admin</title><link rel="stylesheet" href="/style.css"></head>
+<body class="admin-body"><header class="header"><a class="logo" href="/"><span class="logo-mark">SV</span><span>Sexy<span>Video</span></span></a><a class="btn ghost small" href="/" data-i18n="back">Back to site</a></header>
+<main class="admin"><div class="admin-hero"><span class="kicker">ADMIN</span><h1>Content & Payments</h1><p>Upload free or premium videos, delete videos, and approve membership payments.</p></div>
+<section class="admin-card"><h2>Upload video</h2><form id="uploadForm" class="admin-form" enctype="multipart/form-data"><input name="title" required placeholder="Video title"><textarea name="description" placeholder="Description"></textarea><div class="two"><select name="access"><option value="free">Free</option><option value="paid">Premium</option></select><input name="price" type="number" min="0" step="0.01" placeholder="Price (optional)"></div><input name="video" type="file" accept="video/*" required><button class="btn primary">Upload video</button></form><div id="uploadNotice"></div></section>
+<section class="admin-card"><h2>Videos</h2><div id="adminVideos" class="admin-list">Loading…</div></section>
+<section class="admin-card"><h2>Membership payments</h2><div id="adminPayments" class="admin-list">Loading…</div></section></main>
+<script>
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]));
+async function api(u,o={}){const r=await fetch(u,o);const d=await r.json().catch(()=>({}));if(!r.ok)throw Error(d.error||"Request failed");return d}
+async function load(){const v=await api("/api/videos");adminVideos.innerHTML=v.videos.length?v.videos.map(x=>`<div class="admin-row"><div><b>${esc(x.title)}</b><small>${x.access.toUpperCase()} · ${esc(x.original_name)}</small></div><button class="btn danger small" onclick="del(${x.id})">Delete</button></div>`).join(""):"<p>No videos yet.</p>";const p=await api("/api/admin/payments");adminPayments.innerHTML=p.payments.length?p.payments.map(x=>`<div class="admin-row"><div><b>${esc(x.name)} · ${esc(x.email)}</b><small>${x.plan} · $${x.amount} · ${esc(x.txid)} · ${x.status}</small></div><div>${x.status==="pending"?`<button class="btn primary small" onclick="approve(${x.id})">Approve</button> <button class="btn danger small" onclick="reject(${x.id})">Reject</button>`:""}</div></div>`).join(""):"<p>No payments yet.</p>"}
+async function del(id){if(!confirm("Delete this video?"))return;await api("/api/admin/videos/"+id,{method:"DELETE"});load()}
+async function approve(id){await api("/api/admin/payments/"+id+"/approve",{method:"POST"});load()}
+async function reject(id){await api("/api/admin/payments/"+id+"/reject",{method:"POST"});load()}
+uploadForm.onsubmit=async e=>{e.preventDefault();uploadNotice.textContent="Uploading…";try{await api("/api/admin/videos",{method:"POST",body:new FormData(uploadForm)});uploadNotice.textContent="Uploaded.";uploadForm.reset();load()}catch(x){uploadNotice.textContent=x.message}}
+load().catch(e=>{adminVideos.textContent=e.message;adminPayments.textContent=e.message})
+</script></body></html>

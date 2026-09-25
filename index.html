@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Sexy Video — premium 18+ video membership platform.">
+<title>Sexy Video — 18+ Premium</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div id="ageGate" class="age-gate">
+  <div class="age-card">
+    <div class="age-logo"><span>SV</span></div>
+    <div class="age-badge">18+</div>
+    <h1 data-i18n="ageTitle">Adults only</h1>
+    <p data-i18n="ageText">This website contains adult content. You must be 18 or older to enter.</p>
+    <button class="btn primary wide" id="enterBtn" data-i18n="enter18">I am 18 or older</button>
+    <button class="btn ghost wide" id="leaveBtn" data-i18n="leave">Leave site</button>
+    <small data-i18n="ageNote">Demo age gate. For production, connect a legally compliant age-assurance provider.</small>
+  </div>
+</div>
+
+<div class="topline"><span>🔞 <span data-i18n="adultOnly">18+ Adults Only</span></span><span data-i18n="consent">Only lawful, consensual adult content</span></div>
+<header class="header">
+  <a class="logo" href="#home"><span class="logo-mark">SV</span><span>Sexy<span>Video</span></span></a>
+  <nav class="nav" id="nav">
+    <a href="#home" data-i18n="home">Home</a><a href="#videos" data-i18n="videos">Videos</a><a href="#plans" data-i18n="membership">Membership</a><a href="#payment" data-i18n="payment">Payment</a>
+  </nav>
+  <div class="actions">
+    <select id="lang" class="lang"><option value="ps">پښتو</option><option value="ar">العربية</option><option value="en">English</option><option value="tr">Türkçe</option><option value="ru">Русский</option></select>
+    <button class="icon-btn" id="menuBtn">☰</button>
+    <button class="btn small ghost" id="loginBtn" data-i18n="login">Login</button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-orb one"></div><div class="hero-orb two"></div>
+  <div class="hero-copy">
+    <div class="eyebrow">SEXY VIDEO <span>•</span> 18+</div>
+    <h1 data-i18n="heroTitle">Premium adult video.<br><em>Private. Elegant. Simple.</em></h1>
+    <p data-i18n="heroText">Discover a curated adult video experience with free previews, premium access and a clean private interface.</p>
+    <div class="hero-buttons"><a class="btn primary" href="#videos" data-i18n="explore">Explore videos</a><a class="btn ghost" href="#plans" data-i18n="viewPlans">View membership</a></div>
+    <div class="trust"><span>✓ 18+</span><span>✓ HD</span><span>✓ Private access</span><span>✓ 5 languages</span></div>
+  </div>
+  <div class="hero-panel">
+    <div class="panel-top"><span class="live-dot"></span><span data-i18n="featured">Featured collection</span><span class="lock">🔒</span></div>
+    <div class="fake-preview"><div class="play">▶</div><div class="preview-label">PREMIUM</div></div>
+    <div class="panel-info"><div><b data-i18n="premiumCollection">Premium Collection</b><small data-i18n="membersOnly">Members only</small></div><span>HD</span></div>
+  </div>
+</section>
+
+<section class="section compact-stats"><div><strong>18+</strong><span data-i18n="adult">Adults only</span></div><div><strong>HD</strong><span data-i18n="quality">High quality</span></div><div><strong>24/7</strong><span data-i18n="access">Member access</span></div><div><strong>5</strong><span data-i18n="languages">Languages</span></div></section>
+
+<section class="section" id="videos">
+  <div class="section-head"><div><span class="kicker" data-i18n="library">VIDEO LIBRARY</span><h2 data-i18n="latest">Latest videos</h2><p data-i18n="libraryText">Free videos are open to everyone. Premium videos require an active membership.</p></div><div class="filters"><button class="filter active" data-filter="all" data-i18n="all">All</button><button class="filter" data-filter="free" data-i18n="free">Free</button><button class="filter" data-filter="paid" data-i18n="premium">Premium</button></div></div>
+  <div class="video-grid" id="videoGrid"><div class="loading" data-i18n="loading">Loading videos…</div></div>
+</section>
+
+<section class="section plans-section" id="plans">
+  <div class="section-head center"><span class="kicker" data-i18n="membership">MEMBERSHIP</span><h2 data-i18n="unlock">Unlock the full library</h2><p data-i18n="plansText">Choose a plan, send payment and wait for admin confirmation.</p></div>
+  <div class="plans">
+    <article class="plan"><div class="plan-top"><span class="plan-icon">◷</span><span class="tag" data-i18n="monthlyTag">30 DAYS</span></div><h3 data-i18n="monthly">Monthly</h3><div class="price">$25 <small>USDT</small></div><p data-i18n="monthDesc">Full premium access for 30 days.</p><button class="btn ghost wide choose" data-plan="monthly" data-price="25" data-i18n="choose">Choose plan</button></article>
+    <article class="plan featured-plan"><div class="popular" data-i18n="popular">POPULAR</div><div class="plan-top"><span class="plan-icon">★</span><span class="tag" data-i18n="quarterTag">90 DAYS</span></div><h3 data-i18n="quarterly">Quarterly</h3><div class="price">$55 <small>USDT</small></div><p data-i18n="quarterDesc">Full premium access for 90 days.</p><button class="btn primary wide choose" data-plan="quarterly" data-price="55" data-i18n="choose">Choose plan</button></article>
+  </div>
+</section>
+
+<section class="section payment-section" id="payment">
+  <div class="section-head"><span class="kicker" data-i18n="payment">PAYMENT</span><h2 data-i18n="payTitle">Simple USDT payment</h2><p data-i18n="payText">Send the exact plan amount, then submit your transaction ID.</p></div>
+  <div class="pay-grid">
+    <div class="pay-card"><div class="pay-icon">B</div><div><small>BINANCE</small><h3 id="binance">—</h3><p data-i18n="binanceId">Binance ID</p></div><button class="copy" data-copy="binance" data-i18n="copy">Copy</button></div>
+    <div class="pay-card"><div class="pay-icon usdt">₮</div><div class="pay-main"><small>USDT TRC20</small><h3 id="trc">—</h3><p data-i18n="trcAddress">TRC20 address</p></div><button class="copy" data-copy="trc" data-i18n="copy">Copy</button></div>
+  </div>
+  <div class="submit-card">
+    <div><span class="kicker" data-i18n="activate">ACTIVATE</span><h3 data-i18n="submitTitle">Submit your payment</h3><p data-i18n="submitText">Login first, select a plan, then enter your contact and transaction ID.</p></div>
+    <div class="selected" id="selectedPlan" data-i18n="noPlan">No plan selected</div>
+    <div class="form-row"><input id="contact" data-ph="contact" placeholder="Telegram or email"><input id="txid" data-ph="txid" placeholder="Transaction ID / hash"><button class="btn primary" id="submitPayment" data-i18n="submit">Submit payment</button></div>
+    <div id="notice"></div>
+  </div>
+</section>
+
+<section class="section safety"><div class="safety-box"><div class="safety-icon">🛡️</div><div><span class="kicker" data-i18n="safety">SAFETY & CONSENT</span><h3 data-i18n="safetyTitle">Adults, consent and lawful content only</h3><p data-i18n="safetyText">Uploaders must have the rights and consent required to publish content. No minors, non-consensual intimate content, or illegal material.</p></div></div></section>
+</main>
+
+<footer><a class="logo" href="#home"><span class="logo-mark">SV</span><span>Sexy<span>Video</span></span></a><p data-i18n="footer">18+ adult video membership platform.</p><small>© 2026 Sexy Video</small></footer>
+
+<div class="modal" id="authModal"><div class="modal-box"><button class="close" id="closeAuth">×</button><div class="modal-kicker">SEXY VIDEO</div><h2 id="authTitle">Login</h2><div class="form"><input id="authName" data-ph="name" placeholder="Name"><input id="authEmail" type="email" data-ph="email" placeholder="Email"><input id="authPassword" type="password" data-ph="password" placeholder="Password (8+ characters)"><button class="btn primary wide" id="authSubmit">Continue</button><button class="switch" id="toggleAuth">Create an account</button></div><div id="authNotice"></div></div></div>
+<div class="modal" id="videoModal"><div class="modal-box video-box"><button class="close" id="closeVideo">×</button><video id="player" controls playsinline></video></div></div>
+<script src="/app.js"></script>
+</body></html>
